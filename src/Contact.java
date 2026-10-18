@@ -1,12 +1,12 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/11/2026
+ * Date: 10/16/2026
  * Purpose: Base contact class.
  *
  * Demonstrates composition using Info.
  *******************************************************************/
 
-public class Contact {
+public class Contact implements Displayable {
 
     private String firstName;
     private String lastName;
@@ -44,5 +44,9 @@ public class Contact {
                 + lastName
                 + "\n"
                 + info;
+    }
+    @Override
+    public String displayInfo() {
+        return toString();
     }
 }

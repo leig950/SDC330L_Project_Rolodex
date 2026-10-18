@@ -1,7 +1,7 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/11/2026
- * Purpose: Week 1 Rolodex Project Demo
+ * Date: 10/16/2026
+ * Purpose: Week 2 Project Demo
  *******************************************************************/
 
 public class App {
@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println("=================================");
-        System.out.println("Week 1 Project Submission");
+        System.out.println("Week 2 Project Submission");
         System.out.println("Rolodex Contact Manager");
         System.out.println("Leighton Jackson");
         System.out.println("=================================\n");
@@ -18,62 +18,52 @@ public class App {
             "Welcome to the Rolodex Contact Manager.");
 
         System.out.println(
-            "This Week 1 demonstration shows inheritance and composition.\n");
-
-        Info businessInfo =
-                new Info(
-                    "555-1234",
-                    "john@company.com");
-
-        Info familyInfo =
-                new Info(
-                    "555-2222",
-                    "mom@email.com");
-
-        Info friendInfo =
-                new Info(
-                    "555-3333",
-                    "friend@email.com");
+            "This demonstration shows interfaces and polymorphism.\n");
 
         Business business =
-                new Business(
-                    "John",
-                    "Smith",
-                    businessInfo,
-                    "ABC Corporation");
+            new Business(
+                "John",
+                "Smith",
+                new Info(
+                    "555-1234",
+                    "john@company.com"),
+                "ABC Corporation");
 
         Family family =
-                new Family(
-                    "Mary",
-                    "Jackson",
-                    familyInfo,
-                    "Mother");
+            new Family(
+                "Mary",
+                "Jackson",
+                new Info(
+                    "555-2222",
+                    "mom@email.com"),
+                "Mother");
 
         Friend friend =
-                new Friend(
-                    "Mike",
-                    "Brown",
-                    friendInfo,
-                    "Mikey");
+            new Friend(
+                "Mike",
+                "Brown",
+                new Info(
+                    "555-3333",
+                    "friend@email.com"),
+                "Mikey");
 
-        System.out.println("BUSINESS CONTACT");
-        System.out.println("----------------");
-        System.out.println(business);
+        // POLYMORPHISM
+        Contact[] contacts = {
+            business,
+            family,
+            friend
+        };
 
-        System.out.println("\nFAMILY CONTACT");
-        System.out.println("--------------");
-        System.out.println(family);
-
-        System.out.println("\nFRIEND CONTACT");
-        System.out.println("--------------");
-        System.out.println(friend);
-
-        System.out.println("\nInheritance Demonstration:");
         System.out.println(
-            "Business, Family, and Friend inherit from Contact.");
+            "Polymorphism Demonstration\n");
 
-        System.out.println("\nComposition Demonstration:");
-        System.out.println(
-            "Contact contains an Info object.");
+        for(Contact c : contacts) {
+
+            System.out.println(
+                c.displayInfo());
+
+            System.out.println(
+                "------------------");
+        }
     }
 }

@@ -1,6 +1,6 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/11/2026
+ * Date: 10/16/2026
  * Purpose: Friend contact.
  *
  * Demonstrates inheritance from Contact.
@@ -27,6 +27,13 @@ public class Friend extends Contact {
     public String toString() {
 
         return super.toString()
+                + "\nNickname: "
+                + nickname;
+    }
+    @Override
+    public String displayInfo() {
+        return "Friend Contact\n"
+                + super.toString()
                 + "\nNickname: "
                 + nickname;
     }
