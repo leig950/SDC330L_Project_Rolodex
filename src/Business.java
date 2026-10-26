@@ -1,21 +1,26 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/16/2026
- * Purpose: Business contact.
- *
- * Demonstrates inheritance from Contact.
+ * Date: 10/24/2026
+ * Purpose: Represents a business contact.
  *******************************************************************/
-
 public class Business extends Contact {
 
     private String company;
 
-    public Business(String firstName,
-                    String lastName,
-                    Info info,
-                    String company) {
+    public Business() {
 
-        super(
+        super();
+        company = "Unknown Company";
+    }
+
+    public Business(
+            int contactId,
+            String firstName,
+            String lastName,
+            Info info,
+            String company) {
+
+        super(contactId,
             firstName,
             lastName,
             info);
@@ -24,18 +29,13 @@ public class Business extends Contact {
     }
 
     @Override
-    public String toString() {
-
-        return super.toString()
-                + "\nCompany: "
-                + company;
-    }
-
-    @Override
     public String displayInfo() {
-        return "BUSINESS CONTRACT\n"
-                + super.toString()
-                +"\nCompany: "
-                + company;
+
+        return "BUSINESS CONTACT\n"
+                + "ID: " + contactId
+                + "\nName: " + firstName + " " + lastName
+                + "\nPhone: " + info.getPhone()
+                + "\nEmail: " + info.getEmail()
+                + "\nCompany: " + company;
     }
 }

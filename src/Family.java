@@ -1,21 +1,26 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/16/2026
- * Purpose: Family contact.
- *
- * Demonstrates inheritance from Contact.
+ * Date: 10/24/2026
+ * Purpose: Represents a family contact.
  *******************************************************************/
-
 public class Family extends Contact {
 
     private String relationship;
 
-    public Family(String firstName,
-                  String lastName,
-                  Info info,
-                  String relationship) {
+    public Family() {
 
-        super(
+        super();
+        relationship = "Unknown";
+    }
+
+    public Family(
+            int contactId,
+            String firstName,
+            String lastName,
+            Info info,
+            String relationship) {
+
+        super(contactId,
             firstName,
             lastName,
             info);
@@ -24,11 +29,13 @@ public class Family extends Contact {
     }
 
     @Override
-    public String toString() {
+    public String displayInfo() {
 
-        return "Family Contact\n"
-                + super.toString()
-                + "\nRelationship: "
-                + relationship;
+        return "FAMILY CONTACT\n"
+                + "ID: " + contactId
+                + "\nName: " + firstName + " " + lastName
+                + "\nPhone: " + info.getPhone()
+                + "\nEmail: " + info.getEmail()
+                + "\nRelationship: " + relationship;
     }
 }

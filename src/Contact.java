@@ -1,52 +1,42 @@
 /*******************************************************************
  * Name: Leighton Jackson
- * Date: 10/16/2026
- * Purpose: Base contact class.
- *
- * Demonstrates composition using Info.
+ * Date: 10/24/2026
+ * Purpose: Abstract parent class for all contacts.
  *******************************************************************/
+public abstract class Contact
+        implements Displayable {
 
-public class Contact implements Displayable {
+    protected int contactId;
+    protected String firstName;
+    protected String lastName;
+    protected Info info;
 
-    private String firstName;
-    private String lastName;
+    // Default Constructor
+    public Contact() {
 
-    // COMPOSITION
-    private Info info;
+        contactId = 0;
+        firstName = "Unknown";
+        lastName = "Unknown";
+        info = new Info();
+    }
 
-    public Contact(String firstName,
-                   String lastName,
-                   Info info) {
+    // Parameterized Constructor
+    public Contact(
+            int contactId,
+            String firstName,
+            String lastName,
+            Info info) {
 
+        this.contactId = contactId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.info = info;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public int getContactId() {
+        return contactId;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Info getInfo() {
-        return info;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Name: "
-                + firstName
-                + " "
-                + lastName
-                + "\n"
-                + info;
-    }
-    @Override
-    public String displayInfo() {
-        return toString();
-    }
+    // ABSTRACT METHOD
+    public abstract String displayInfo();
 }
